@@ -20,8 +20,8 @@
 
 
 function opulate() {
-var equestURL =
-  "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
+var equestURL ="https://constantincobel.github.io/Souzka//Souzka.json";
+  //"https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
 var request = new XMLHttpRequest();
 request.open("GET", equestURL);
 request.responseType = "json";
