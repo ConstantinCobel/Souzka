@@ -17,11 +17,11 @@
     // создаём новый экземпляр запроса XHR
     let xhr = new XMLHttpRequest();
     // адрес, куда мы отправим нашу JSON-строку
-    let url = "https://constantincobel.github.io/Souzka//Souzka.php";
+    let url = "https://constantincobel.github.io/Souzka/json/json.php";
     // открываем соединение
     xhr.open("POST", url, true);
     // устанавливаем заголовок — выбираем тип контента, который отправится на сервер, в нашем случае мы явно пишем, что это JSON
-    xhr.setRequestHeader("Content-Type", "application");
+    xhr.setRequestHeader("Content-Type", "application/json");
 
     // когда придёт ответ на наше обращение к серверу, мы его обработаем здесь
     xhr.onreadystatechange = function () {
