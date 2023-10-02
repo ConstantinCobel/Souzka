@@ -21,7 +21,7 @@
     // открываем соединение
     xhr.open("POST", url, true);
     // устанавливаем заголовок — выбираем тип контента, который отправится на сервер, в нашем случае мы явно пишем, что это JSON
-    xhr.setRequestHeader("Content-Type", "application");
+    xhr.setRequestHeader("Content-Type", "application/json");
 
     // когда придёт ответ на наше обращение к серверу, мы его обработаем здесь
     xhr.onreadystatechange = function () {
