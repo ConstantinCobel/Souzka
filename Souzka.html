@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru"> 
-<head content="text/html"; charset="utf-8"> <!-- utf-8 windows-1251-->
+<head content="text/html"; charset="utf-8">
   <meta name="description" lang="ru" content="Союзная табличка для участия в Приключениях">
   <meta name="keywords" lang="ru" content="Союзка, Союзная табличка, Элвенар, Приключения союза">
   <title>Союзка</title> 
@@ -11,23 +11,38 @@
   <h1 style="text-align:center">СОЮЗКА</h1>
   <hr>
   <div style="text-align:center" id="Pan0">
-	<p>Союзка - это союзная таблица для координации действий союзников при пролхождении Приключений.</p>
-	<p>Создайте табличку для своего союза или подключитесь к уже созданной.</p>
-	<div>
-		<p><label>Союз:<input type="text" id="Souz" name="Souz" required /></label></p>
-		<p><label> Ник:<input type="text" id="Nik" name="Nik" required /></label></p>
-		<p><label> Код:<input type="text" id="Cod" name="Cod" required /></label></p>
-		<p><button style="width: 200px" type="button" id="Open">Вход</button></p>
-	</div>
-	<p>При создании новой союзки запомните личный код для последующего входа.</p>
-	<p>Если хотите подключится к существующей Союзке, то получите код у модератора.</p>
+	<p style="font-size:14px">Союзка - это союзная таблица для координации действий союзников в Приключениях.</p>
+	<p style="font-size:14px">Создайте табличку для своего союза или подключитесь к уже созданной.</p>
+    <div>
+	  <p><label>Союз:<input type="text" style="width: 150px" name="MyUnit" id="MyUnit" placeholder="Введите название Союза" required /></label>
+	  </p>
+	  <p><label>Игрок:<input type="password" style="width: 120px" name="MyAccaunt" id="MyAccaunt" placeholder="Введите свой Аккаунт" required /></label>
+	  <img src="eyeicon.png" onmouseover="mouseoverPass();" onmouseout="mouseoutPass();" style="width: 16px" >
+	  </p>
+	  <input style="width: 212px" type="submit" value="Войти" id="Open" />
+    </div>
+	<p style="font-size:12px">Для подключения к существующей Союзке получите данные у модератора.</p>
   </div>
   <hr>
-  <p>Сайт создан MagicGenri из Арендила для любителей коллективного взаимодействия.</p>
+  <p style="font-size:10px">Сайт создан MagicGenri из Арендила для любителей коллективной игры.</p>
 
 
-<script src="Souzka.js" charset="utf-8"></script>	
-
+<script src="Souzka.js" charset="utf-8"></script>
+	
+<script>                      // данные для отправки
+const user = "formed";
+const xhr = new XMLHttpRequest();
+var eURL ="https://constantincobel.github.io/Souzka//Souzka.json";
+xhr.open("POST", eURL);       // POST-запрос к ресурсу /user
+xhr.onload = () => {          // обработчик получения ответа сервера
+    if (xhr.status == 200) { 
+        console.log(xhr.responseText);
+    } else {
+        console.log("Server ошибся: ", xhr.statusText);
+    }
+};
+xhr.send(user);     // отправляем значение user в методе send
+</script>
 </body>
 
 </html>
