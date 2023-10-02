@@ -5,23 +5,22 @@
         var Souz = document.querySelector('#Souz').value;
         var Nik = document.querySelector('#Nik').value;
         var Cod = document.querySelector('#Cod').value;
-		if (Souz == "да") {
-		  Souz="нет";
+		if (document.getElementById("Souz").value == "ДА") {
+		  document.getElementById("Souz").value="НЕТ";
 		} 
 		else 
 		{
-		  Souz="да";
+		  document.getElementById("Souz").value="ДА";
 		//document.getElementById("Pan0").style.display = "none";
 		};	
-		document.getElementById("Souz").value=Souz;
-		document.getElementById("Cod").value="NO";
+		//document.getElementById("Souz").value=Souz;
+		//document.getElementById("Cod").value="NO";
 		opulate();
     }; 
 
 
 function opulate() {
 var equestURL ="https://constantincobel.github.io/Souzka//Souzka.json";
-  //"https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
 var request = new XMLHttpRequest();
 request.open("GET", equestURL);
 request.responseType = "json";
