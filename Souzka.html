@@ -21,6 +21,7 @@
 	  </p>
 	  <input style="width: 212px" type="submit" value="Войти" id="Open" />
     </div>
+	<p class="result" style="color:blue"></p>
 	<p style="font-size:12px">Для подключения к существующей Союзке получите данные у модератора.</p>
   </div>
   <hr>
@@ -29,20 +30,7 @@
 
 <script src="Souzka.js" charset="utf-8"></script>
 	
-<script>                      // данные для отправки
-const user = "formed";
-const xhr = new XMLHttpRequest();
-var eURL ="https://constantincobel.github.io/Souzka//Souzka.json";
-xhr.open("POST", eURL);       // POST-запрос к ресурсу /user
-xhr.onload = () => {          // обработчик получения ответа сервера
-    if (xhr.status == 200) { 
-        console.log(xhr.responseText);
-    } else {
-        console.log("Server ошибся: ", xhr.statusText);
-    }
-};
-xhr.send(user);     // отправляем значение user в методе send
-</script>
+
 </body>
 
 </html>
