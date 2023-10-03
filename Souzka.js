@@ -40,7 +40,7 @@
 
                    // Получение Souzka.json в виде оюъекта
 function opulate() {
-var equestURL ="https://constantincobel.github.io/Souzka//Souzka.json";
+var equestURL ="https://constantincobel.github.io/Souzka/Souzka.json";
 var request = new XMLHttpRequest();
   request.open("GET", equestURL);
   request.responseType = "json";
