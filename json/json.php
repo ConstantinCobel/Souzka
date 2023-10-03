@@ -5,3 +5,4 @@ header("Content-Type: application/json");
 $data = json_decode(file_get_contents("php://input"));
 // отправляем в ответ строку с подтверждением
 echo "Сервер получил данные:";
+?>
