@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru"> 
+<head content="text/html"; charset="utf-8">
+  <meta name="description" lang="ru" content="Союзная табличка для участия в Приключениях">
+  <meta name="keywords" lang="ru" content="Союзка, Союзная табличка, Элвенар, Приключения союза">
+  <title>Союзка</title> 
+  <style>body {font-family: Verdana, Arial, Helvetica, sans-serif; line-height: 1.0;}</style>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+
+<body> 					
+  <h1 style="text-align:center">СОЮЗКА</h1>
+  <hr>
+  <div style="text-align:center" id="Pan0">
+	<p style="font-size:14px">Союзка - это союзная таблица для координации действий союзников в Приключениях.</p>
+	<p style="font-size:14px">Создайте табличку для своего союза или подключитесь к уже созданной.</p>
+    <div>
+	  <p><label>Союз:<input type="text" style="width: 150px" name="MyUnit" id="MyUnit" placeholder="Введите название Союза" required /></label>
+	  </p>
+	  <p><label>Игрок:<input type="password" style="width: 120px" name="MyAccaunt" id="MyAccaunt" placeholder="Введите свой Аккаунт" required /></label>
+	  <img src="eyeicon.png" onmouseover="mouseoverPass();" onmouseout="mouseoutPass();" style="width: 16px" >
+	  </p>
+	  <input style="width: 212px" type="submit" value="Войти" id="Open" />
+    </div>
+	<p style="font-size:12px">Для подключения к существующей Союзке получите данные у модератора.</p>
+  </div>
+  <hr>
+
+
+  <h2> Простая форма для проверки работы JSON </h2>
+  <!-- делаем форму с полями ввода -->
+  <p>
+    <input type="text" id="name" placeholder="Ваше имя">
+    <input type="text" id="lastname" placeholder="и фамилия">
+    <!-- по нажатию на эту кнопку данные уйдут на сервер -->
+    <button onclick="sendJSON()">Проверить JSON</button>
+    <!-- а вот тут они появятся снова, но уже после обработки сервером -->
+  <p class="result" style="color:blue"></p>
+  </p>
+
+
+  <p style="font-size:10px">Сайт создан MagicGenri из Арендила для любителей коллективной игры.</p>
+
+
+<script src="Souzka.js" charset="utf-8"></script>
+<!-- скрипт, который обработает нажатие на кнопку и отправит данные на сервер -->
+<script>
+  // эта функция сработает при нажатии на кнопку
+  function sendJSON() {
+    // с помощью jQuery обращаемся к элементам на странице по их именам
+    let name = document.querySelector('#name');
+    let lastname = document.querySelector('#lastname');
+    // а вот сюда мы поместим ответ от сервера
+    let result = document.querySelector('.result');
+    // создаём новый экземпляр запроса XHR
+    let xhr = new XMLHttpRequest();
+    // адрес, куда мы отправим нашу JSON-строку
+    let url = "https://constantincobel.github.io/Souzka/json/json.php";
+    // открываем соединение
+    xhr.open("POST", url, true);
+    // устанавливаем заголовок — выбираем тип контента, который отправится на сервер, в нашем случае мы явно пишем, что это JSON
+    xhr.setRequestHeader("Content-Type", "application/json");
+    // когда придёт ответ на наше обращение к серверу, мы его обработаем здесь
+    xhr.onreadystatechange = function () {
+      // если запрос принят и сервер ответил, что всё в порядке
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // выводим то, что ответил нам сервер — так мы убедимся, что данные он получил правильно
+        result.innerHTML = this.responseText;
+      }
+    };
+    // преобразуем наши данные JSON в строку
+    var data = JSON.stringify({ "name": name.value, "lastname": lastname.value });
+    // когда всё готово, отправляем JSON на сервер
+    xhr.send(data);
+  }
+</script>	
+
+</body>
+
+</html>
+
