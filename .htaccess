@@ -1,6 +1,6 @@
 AuthType Basic
 AuthName "Private zone"
-AuthUserFile /home/u304720/***.ru/www/adm/.htpasswd
+AuthUserFile https://constantincobel.github.io/Souzka/Privat/.htpasswd
 Require valid-user
 <Files .htpasswd> 
    deny from all
