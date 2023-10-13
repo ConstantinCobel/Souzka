@@ -9,7 +9,7 @@
 </head>
 
 <body> 					
-  <h1 style="text-align:center">СОЮЗКА1</h1>
+  <h1 style="text-align:center">СОЮЗКА2</h1>
   <hr>
   <h2> Простая форма для проверки работы JSON </h2>
   <p>
@@ -22,16 +22,7 @@
 
 	
 <script>
-  // когда придёт ответ на наше обращение к серверу, мы его обработаем здесь
-  xhr.onreadystatechange = function () {
-    // если запрос принят и сервер ответил, что всё в порядке
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      // выводим то, что ответил нам сервер — так мы убедимся, что данные он получил правильно
-      result.innerHTML = this.responseText;
-    }
-  };
-	
-  // эта функция сработает при нажатии на кнопку
+    // эта функция сработает при нажатии на кнопку
   function sendJSON() {
     // с помощью jQuery обращаемся к элементам на странице по их именам
     let name = document.querySelector('#name');
